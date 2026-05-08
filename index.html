@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter & Word Counter – Free Online Text Analyzer</title>
+    <meta name="description" content="Free online character counter & word counter. Count characters, words, sentences, paragraphs. Check social media limits. No signup required.">
+    <meta name="keywords" content="character counter, word counter, text analyzer, character count, word count online free">
+    <link rel="canonical" href="https://wordcharcount.com/">
+    <link rel="alternate" hreflang="en" href="https://wordcharcount.com/">
+    <link rel="alternate" hreflang="de" href="https://wordcharcount.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://wordcharcount.com/fr/">
+    <link rel="alternate" hreflang="es" href="https://wordcharcount.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://wordcharcount.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://wordcharcount.com/">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--primary:#2563eb;--primary-dark:#1d4ed8;--bg:#f8fafc;--card:#fff;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--accent:#10b981;--shadow:0 1px 3px rgba(0,0,0,.1)}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+        .lang-bar{background:#1e293b;padding:0.5rem 1rem;display:flex;justify-content:center;gap:0.4rem;flex-wrap:wrap}
+        .lang-btn{background:transparent;border:1.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);padding:0.3rem 0.7rem;border-radius:6px;cursor:pointer;font-size:0.78rem;transition:all 0.2s;text-decoration:none}
+        .lang-btn:hover,.lang-btn.active{background:var(--primary);border-color:var(--primary);color:#fff}
+        header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;text-align:center;padding:2rem 1rem}
+        header h1{font-size:1.7rem;margin-bottom:0.3rem}
+        header p{opacity:0.9;font-size:0.95rem}
+        .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem}
+        .ad-slot{background:#f1f5f9;border:2px dashed var(--border);border-radius:8px;padding:1.2rem;text-align:center;color:var(--muted);font-size:0.8rem;margin:1.5rem 0}
+        textarea{width:100%;min-height:200px;padding:1rem;border:2px solid var(--border);border-radius:10px;font-size:1rem;font-family:inherit;resize:vertical;transition:border-color 0.2s}
+        textarea:focus{outline:none;border-color:var(--primary)}
+        .hint{display:flex;justify-content:space-between;margin-top:0.5rem;font-size:0.8rem;color:var(--muted)}
+        .actions{display:flex;gap:0.5rem;margin:1rem 0 1.5rem;flex-wrap:wrap}
+        .btn{padding:0.5rem 1rem;border:none;border-radius:8px;font-size:0.82rem;cursor:pointer;font-weight:500;transition:all 0.2s}
+        .btn-primary{background:var(--primary);color:#fff}
+        .btn-primary:hover{background:var(--primary-dark)}
+        .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+        .btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin-bottom:1.5rem}
+        .stat-card{background:var(--card);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);transition:transform 0.2s}
+        .stat-card:hover{transform:translateY(-2px)}
+        .stat-card .value{font-size:1.7rem;font-weight:700;color:var(--primary)}
+        .stat-card .label{font-size:0.78rem;color:var(--muted);margin-top:0.1rem}
+        .details{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+        .detail-card{background:var(--card);border-radius:10px;padding:1.2rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+        .detail-card h3{font-size:0.9rem;margin-bottom:0.7rem}
+        .detail-row{display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border);font-size:0.83rem}
+        .detail-row:last-child{border:none}
+        .detail-row .val{font-weight:600;color:var(--primary)}
+        .limit-item{padding:0.4rem 0.6rem;background:var(--bg);border-radius:6px;font-size:0.8rem;margin-bottom:0.4rem}
+        .limit-top{display:flex;justify-content:space-between}
+        .limit-bar{height:4px;background:var(--border);border-radius:2px;margin-top:0.25rem}
+        .limit-fill{height:100%;border-radius:2px;transition:width 0.3s}
+        .green{background:var(--accent)}.yellow{background:#f59e0b}.red{background:#ef4444}
+        .seo-content{background:var(--card);border-radius:10px;padding:1.5rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.5rem}
+        .seo-content h2{font-size:1.15rem;margin-bottom:0.5rem}
+        .seo-content h3{font-size:0.95rem;margin:0.8rem 0 0.3rem}
+        .seo-content p,.seo-content li{font-size:0.88rem;color:var(--muted)}
+        .seo-content ul{padding-left:1.2rem}
+        .seo-content li{margin-bottom:0.2rem}
+        .faq-item{border-bottom:1px solid var(--border)}
+        .faq-q{padding:0.7rem 0;cursor:pointer;font-weight:600;font-size:0.88rem;display:flex;justify-content:space-between}
+        .faq-a{display:none;padding-bottom:0.7rem;font-size:0.83rem;color:var(--muted)}
+        .faq-item.open .faq-a{display:block}
+        .faq-item.open .faq-q::after{content:'−'}
+        .faq-q::after{content:'+';font-size:1.1rem;color:var(--primary)}
+        footer{text-align:center;padding:1.5rem 1rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border)}
+        footer a{color:var(--muted);text-decoration:none}
+        footer a:hover{color:var(--primary)}
+        @media(max-width:600px){.details{grid-template-columns:1fr}header h1{font-size:1.3rem}}
+    </style>
+</head>
+<body>
+
+<nav class="lang-bar">
+    <a class="lang-btn active" href="/">🇬🇧 English</a>
+    <a class="lang-btn" href="/de/">🇩🇪 Deutsch</a>
+    <a class="lang-btn" href="/fr/">🇫🇷 Français</a>
+    <a class="lang-btn" href="/es/">🇪🇸 Español</a>
+    <a class="lang-btn" href="/pt/">🇧🇷 Português</a>
+</nav>
+
+<header>
+    <h1>✏️ Character Counter & Text Analyzer</h1>
+    <p>Count characters, words, sentences – free and instant</p>
+</header>
+
+<div class="container">
+
+    <!-- AD SLOT 1 -->
+    <div class="ad-slot">Ad Slot 1 – Leaderboard (728×90)</div>
+
+    <textarea id="textInput" placeholder="Paste your text here or start typing..."></textarea>
+    <div class="hint"><span>Tip: Ctrl+A to select all</span><span id="liveCount">0 characters</span></div>
+
+    <div class="actions">
+        <button class="btn btn-primary" onclick="copyText()">📋 Copy</button>
+        <button class="btn btn-outline" onclick="clearText()">🗑️ Clear</button>
+        <button class="btn btn-outline" onclick="toUpper()">AA UPPERCASE</button>
+        <button class="btn btn-outline" onclick="toLower()">aa lowercase</button>
+        <button class="btn btn-outline" onclick="trimSpaces()">␣ Remove spaces</button>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card"><div class="value" id="s1">0</div><div class="label">Characters</div></div>
+        <div class="stat-card"><div class="value" id="s2">0</div><div class="label">No Spaces</div></div>
+        <div class="stat-card"><div class="value" id="s3">0</div><div class="label">Words</div></div>
+        <div class="stat-card"><div class="value" id="s4">0</div><div class="label">Sentences</div></div>
+        <div class="stat-card"><div class="value" id="s5">0</div><div class="label">Paragraphs</div></div>
+        <div class="stat-card"><div class="value" id="s6">0</div><div class="label">Min. Read</div></div>
+    </div>
+
+    <!-- AD SLOT 2 -->
+    <div class="ad-slot">Ad Slot 2 – Rectangle (336×280)</div>
+
+    <div class="details">
+        <div class="detail-card">
+            <h3>📊 Text Statistics</h3>
+            <div id="statsDetail"></div>
+        </div>
+        <div class="detail-card">
+            <h3>📱 Social Media Limits</h3>
+            <div id="limitsGrid"></div>
+        </div>
+    </div>
+
+    <div class="detail-card" style="margin-bottom:1.5rem">
+        <h3>🔑 Top Keywords (Density)</h3>
+        <div id="keywordList" style="font-size:0.83rem;color:var(--muted)">Enter text to see keywords.</div>
+    </div>
+
+    <!-- AD SLOT 3 -->
+    <div class="ad-slot">Ad Slot 3 – In-Article</div>
+
+    <div class="seo-content">
+        <h2>What is a Character Counter?</h2>
+        <p>A character counter is a free online tool that instantly displays how many characters, words, sentences, and paragraphs your text contains. Our tool analyzes your text in real-time – no signup, no download required.</p>
+
+        <h3>Why Do You Need a Character Counter?</h3>
+        <ul>
+            <li><strong>Social Media:</strong> Twitter/X (280 characters), Instagram Bio (150), LinkedIn Posts (3,000)</li>
+            <li><strong>SEO:</strong> Meta Titles (60 characters), Meta Descriptions (160 characters)</li>
+            <li><strong>Academic:</strong> Essays, dissertations, and papers with strict word or character limits</li>
+            <li><strong>Professional:</strong> Emails, cover letters, product descriptions, ad copy</li>
+        </ul>
+
+        <h3>How Does This Word Counter Work?</h3>
+        <p>Simply paste or type your text into the box above. Our tool instantly counts characters (with and without spaces), words, sentences, paragraphs, and estimates reading and speaking time. It also shows your top keywords with density percentages and tracks social media character limits in real-time.</p>
+
+        <h2 style="margin-top:1.2rem">Frequently Asked Questions</h2>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this character counter completely free?</div><div class="faq-a">Yes, 100% free with no registration required. Your text is never stored, saved, or shared with anyone. Everything runs locally in your browser.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are spaces counted as characters?</div><div class="faq-a">We show both counts: characters with spaces and characters without spaces. Most social media platforms count spaces as characters, so keep an eye on the "Characters" count for those limits.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is reading time calculated?</div><div class="faq-a">Reading time is based on an average reading speed of 250 words per minute. Speaking time uses 150 words per minute, which is typical for presentations.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does this work on mobile devices?</div><div class="faq-a">Yes! Our character counter is fully responsive and works perfectly on smartphones, tablets, and desktop computers.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is keyword density?</div><div class="faq-a">Keyword density shows how often a word appears in your text as a percentage. It's useful for SEO to ensure your content isn't over- or under-optimized for specific keywords. A density of 1-3% is generally recommended.</div></div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 wordcharcount.com – Free Character Counter & Word Counter Tool</p>
+    <p style="margin-top:0.3rem"><a href="/impressum/">Imprint</a> · <a href="/privacy/">Privacy Policy</a></p>
+</footer>
+
+<script>
+const ta=document.getElementById('textInput');
+const stops=new Set(['the','and','is','a','to','of','in','for','on','with','that','this','it','are','was','be','have','has','had','not','but','or','an','at','by','from','as','can','will','do','did','would','should','could','may','might','been','being','its','they','them','their','there','here','where','when','how','what','which','who','than','then','also','just','only','very','much','more','most','some','any','all','each','every','both','few','many','such','own','other','no','so','too','about','after','before','between','into','through','during','above','below','over','under','again','once','if','because','until','while','these','those','my','your','his','her','our','you','she','he','we','me','him','us']);
+const smLimits=[{name:'Twitter/X',max:280},{name:'Instagram Bio',max:150},{name:'Meta Title',max:60},{name:'Meta Description',max:160},{name:'LinkedIn Post',max:3000},{name:'YouTube Title',max:100}];
+
+ta.addEventListener('input',analyze);
+
+function analyze(){
+    const text=ta.value,chars=text.length,charsNS=text.replace(/\s/g,'').length;
+    const words=text.trim()===''?[]:text.trim().split(/\s+/),wc=words.length;
+    const sents=text.split(/[.!?]+/).filter(s=>s.trim().length>0);
+    const paras=text.split(/\n\n+/).filter(p=>p.trim().length>0);
+    document.getElementById('liveCount').textContent=chars+' characters';
+    document.getElementById('s1').textContent=chars.toLocaleString();
+    document.getElementById('s2').textContent=charsNS.toLocaleString();
+    document.getElementById('s3').textContent=wc.toLocaleString();
+    document.getElementById('s4').textContent=sents.length;
+    document.getElementById('s5').textContent=text.trim()===''?0:paras.length;
+    document.getElementById('s6').textContent=Math.max(wc?1:0,Math.ceil(wc/250));
+
+    const avgW=wc>0?(words.reduce((a,w)=>a+w.length,0)/wc).toFixed(1):0;
+    const avgS=sents.length>0?Math.round(wc/sents.length):0;
+    const lonS=sents.reduce((m,s)=>{const l=s.trim().split(/\s+/).length;return l>m?l:m},0);
+    const uniq=new Set(words.map(w=>w.toLowerCase().replace(/[^a-z]/g,''))).size;
+    document.getElementById('statsDetail').innerHTML=[['Avg. Word Length',avgW+' chars'],['Avg. Sentence Length',avgS+' words'],['Longest Sentence',lonS+' words'],['Unique Words',uniq],['Speaking Time',Math.max(wc?1:0,Math.ceil(wc/150))+' min.']].map(([l,v])=>`<div class="detail-row"><span>${l}</span><span class="val">${v}</span></div>`).join('');
+
+    document.getElementById('limitsGrid').innerHTML=smLimits.map(lm=>{const pct=Math.min(100,(chars/lm.max)*100);const col=pct<=80?'green':pct<=100?'yellow':'red';return`<div class="limit-item"><div class="limit-top"><span>${lm.name}</span><span style="font-weight:600">${chars}/${lm.max}</span></div><div class="limit-bar"><div class="limit-fill ${col}" style="width:${pct}%"></div></div></div>`}).join('');
+
+    const freq={};words.forEach(w=>{const c=w.toLowerCase().replace(/[^a-z0-9]/g,'');if(c.length>2&&!stops.has(c))freq[c]=(freq[c]||0)+1});
+    const sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,8);
+    const kwEl=document.getElementById('keywordList');
+    if(!sorted.length){kwEl.innerHTML='Enter text to see keywords.';return}
+    kwEl.innerHTML=sorted.map(([w,c])=>`<div class="detail-row"><span>${w}</span><span class="val">${c}× (${((c/wc)*100).toFixed(1)}%)</span></div>`).join('');
+}
+
+function copyText(){navigator.clipboard.writeText(ta.value)}
+function clearText(){ta.value='';analyze()}
+function toUpper(){ta.value=ta.value.toUpperCase();analyze()}
+function toLower(){ta.value=ta.value.toLowerCase();analyze()}
+function trimSpaces(){ta.value=ta.value.replace(/  +/g,' ').replace(/\n\n\n+/g,'\n\n').trim();analyze()}
+analyze();
+</script>
+</body>
+</html>
